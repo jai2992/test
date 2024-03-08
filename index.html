@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+        />
+        <title>VR player</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overflow: hidden;
+            }
+
+        </style>
+        <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
+
+        <script defer src="dist/index.js"></script>
+        <script defer src="dist/jsonLoader.js"></script>
+    </head>
+
+    <body>
+        <video
+            id="video"
+            crossorigin="anonymous"
+            playsinline
+            style="display: none"
+        >
+            <source id="video_src" src="" type="video/mp4" />
+        </video>
+        
+    </body>
+    <script defer type="module">
+        try {
+            new JsonLoader("files.json");
+        } catch (error) {
+            console.warn(error);
+        }
+    </script>
+</html>
